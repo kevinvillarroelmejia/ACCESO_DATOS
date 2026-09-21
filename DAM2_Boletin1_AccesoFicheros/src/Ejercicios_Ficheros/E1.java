@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class E1 {
 
-	private static final String FICHERO_PERSONAJES="datos" + File.separator +  "personajes.txt";;
+	private static final String FICHERO_PERSONAJES="datos" + File.separator +  "personajes.txt";
 	private static final String FICHERO_ANIMES="datos" + File.separator + "animes.txt";
 	//Boletin 1 - Ejercicio 1
 	public static void main(String[] args) {

@@ -9,7 +9,7 @@ import java.io.IOException;
 public class E3 {
 	private static final String FICHERO_PAISES = "datos" + File.separator + "paises.csv";
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args)  {
 		leerFichero();
 	}
 
