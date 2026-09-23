@@ -1,0 +1,12 @@
+TEORIA: 
+PERSISTENCIAS DE OBJETOS --> SOLO CON --> FICHEROS BINARIOS
+	LEER: DataInputStream + fileInputStream
+	
+	ESCRITURA: 
+		
+		
+	
+Accesos: 
+	secuencial
+	aletoria ---> ACCEDER DONDE QUEREMOS  --> RECORERLO HASTA QUE LO ENCONTREMOS
+	

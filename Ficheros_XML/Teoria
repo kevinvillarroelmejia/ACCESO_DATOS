@@ -1,0 +1,25 @@
+XML
+CSV
+JSON
+
+===FORMATO CSV:===
+jose maria, 333444555, 57
+elena, 44422211,45
+
+
+========FORMATO XML=============
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<agenda>
+
+	<contacto>
+		<nombre> jose maria</nombre>
+		<telefono> 11122233</telefono>
+	</contacto>
+	
+	<contacto>
+		<nombre> kevin</nombre>
+		<telefono> 999888777</telefono>
+	</contacto>
+		
+</agenda>
+
