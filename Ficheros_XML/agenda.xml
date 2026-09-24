@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <agenda>
-
-	<contacto>
-		<nombre>jose maria</nombre>
-		<telefono>11122233</telefono>
-	</contacto>
+    	
+    <contacto>
+        		
+        <nombre>jose maria</nombre>
+        		
+        <telefono>11122233</telefono>
+        	
+    </contacto>
+    	
 	
-	<contacto>
-		<nombre>kevin villarroel</nombre>
-		<telefono>999888777</telefono>
-	</contacto>
-	
+    <contacto>
+        		
+        <nombre>kevin villarroel</nombre>
+        		
+        <telefono>999888777</telefono>
+        	
+    </contacto>
+    	
 	
 		
+
+    <contacto>
+        <nombre>Sara Garcia</nombre>
+        <telefono>000999888</telefono>
+    </contacto>
 </agenda>
