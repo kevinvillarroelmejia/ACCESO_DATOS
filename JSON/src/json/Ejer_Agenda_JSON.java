@@ -32,7 +32,6 @@ public class Ejer_Agenda_JSON {
 	
 
 	private static List<Contacto> cargarListaAgenda(String ruta) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
