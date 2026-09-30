@@ -1,0 +1,13 @@
+{
+"agenda": [
+
+{"nombre": "Juan Perez",
+"dni":"555555F",
+"telefono": "600111222"},
+
+{"nombre": "Maria Lopez",
+"dni":"222222G",
+"telefono": "600333444"}
+]
+
+}

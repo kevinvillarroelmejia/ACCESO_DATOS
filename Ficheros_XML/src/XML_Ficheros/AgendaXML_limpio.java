@@ -15,14 +15,14 @@ import org.w3c.dom.NodeList;
 
 public class AgendaXML_limpio {
 
-
 	public static void main(String[] args) throws Exception {
 		// mostrarAgenda("agenda.xml");
-		buscarContactoPorNombre("agenda.xml", "Sara García");
-		eliminarContacto("agenda.xml", "Sara García");
-		aniadirContacto("agenda.xml", "Miriam García", "222222222");
-		aniadirContacto("agenda.xml", "Sara García", "111111111");
-		modificarTelefono("agenda.xml", "Sara García", "333333333");
+//		buscarContactoPorNombre("agenda.xml", "Sara Garcia");
+		eliminarContacto("agenda.xml", "Sara Garcia");
+//		aniadirContacto("agenda.xml", "Miriam García", "222222222");
+//		aniadirContacto("agenda.xml", "Sara García", "111111111");
+//		modificarTelefono("agenda.xml", "Sara García", "333333333");
+
 	}
 
 	public static void mostrarAgenda(String fichero) throws Exception {
@@ -69,63 +69,40 @@ public class AgendaXML_limpio {
 	/* Método para buscar el teléfono de una persona en concreto por su nombre */
 	public static void buscarContactoPorNombre(String fichero, String nom) throws Exception {
 		Document doc = leerXML(fichero);
-		NodeList listaContactos = doc.getElementsByTagName("contacto");
+		Element contacto = existeContacto(nom, doc);
 
-		boolean existe = false;
-
-		for (int i = 0; i < listaContactos.getLength() && existe == false; i++) {
-			Node nodo = listaContactos.item(i);
-			Element contacto = (Element) nodo;
-			String nombre = contacto.getElementsByTagName("nombre").item(0).getTextContent();
-
-			if (nombre.equalsIgnoreCase(nom)) {
-				existe = true;
-				String telefono = contacto.getElementsByTagName("telefono").item(0).getTextContent();
-				System.out.println("El teléfono de " + nom + " es " + telefono);
-			}
-		}
-		if (existe == false) {
+		if (contacto != null) {
+			String telefono = contacto.getElementsByTagName("telefono").item(0).getTextContent();
+			System.out.println("El teléfono de " + nom + " es " + telefono);
+		} else {
 			System.out.println("No existe ningún contacto con nombre " + nom);
 		}
+
 	}
 
 	/* Eliminar contacto */
 	public static void eliminarContacto(String fichero, String nom) throws Exception {
 		Document doc = leerXML(fichero);
-		NodeList listaContactos = doc.getElementsByTagName("contacto");
-		boolean existe = false;
-		for (int i = 0; i < listaContactos.getLength() && existe == false; i++) {
-			Node nodo = listaContactos.item(i);
-			Element contacto = (Element) nodo;
-			String nombre = contacto.getElementsByTagName("nombre").item(0).getTextContent();
 
-			if (nombre.equalsIgnoreCase(nom)) {
-				existe = true;
-				Element raiz = doc.getDocumentElement();
-				raiz.removeChild(contacto);
-				System.out.println("Contacto " + nom + " eliminado");
-				grabarXML(doc, fichero);
-			}
+		Element contacto = existeContacto(nom, doc);
+
+		if (contacto != null) {
+			Element raiz = doc.getDocumentElement();
+			raiz.removeChild(contacto);
+			System.out.println("Contacto " + nom + " eliminado");
+			grabarXML(doc, fichero);
+		} else {
+			System.out.println("No se puede eliminar el contacto");
 		}
-		if (existe == false) {
-			System.out.println(nom + " no se puede eliminar ya que no existe contacto con ese nombre.");
-		}
+
 	}
 
 	private static void aniadirContacto(String fichero, String nombreNuevo, String telefonoNuevo) throws Exception {
 		Document doc = leerXML(fichero);
 		NodeList listaContactos = doc.getElementsByTagName("contacto");
-		boolean existe = false;
-		for (int i = 0; i < listaContactos.getLength() && existe == false; i++) {
-			Node nodo = listaContactos.item(i);
-			Element contacto = (Element) nodo;
-			String nombre = contacto.getElementsByTagName("nombre").item(0).getTextContent();
-			if (nombre.equalsIgnoreCase(nombreNuevo)) {
-				existe = true;
-				System.out.println("Contacto: " + nombreNuevo + " añadido");
-			}
-		}
-		if (existe == true) {
+		Element contacto = existeContacto(nombreNuevo, doc);
+
+		if (contacto != null) {
 			System.out.println("Ya existe un contacto de nombre: " + nombreNuevo);
 		} else {
 			Element nuevoContacto = doc.createElement("contacto");
@@ -146,24 +123,38 @@ public class AgendaXML_limpio {
 	private static void modificarTelefono(String fichero, String nombreContacto, String nuevoTelefono)
 			throws Exception {
 		Document doc = leerXML(fichero);
-		NodeList listaContactos = doc.getElementsByTagName("contacto");
-		boolean existe = false;
-		for (int i = 0; i < listaContactos.getLength() && existe == false; i++) {
-			Node nodo = listaContactos.item(i);
-			Element contacto = (Element) nodo;
-			String nombre = contacto.getElementsByTagName("nombre").item(0).getTextContent();
-			if (nombre.equalsIgnoreCase(nombreContacto)) {
-				existe = true;
-				Element telefono = (Element)contacto.getElementsByTagName("telefono").item(0);
-				telefono.setTextContent(nuevoTelefono);
-				grabarXML(doc, fichero);
-				System.out.println("Teléfono modificado a " + nuevoTelefono +" en el contacto " + nombreContacto);
-			}
+		Element contacto = existeContacto(nombreContacto, doc);
+
+		if (contacto != null) {
+			Element telefono = (Element) contacto.getElementsByTagName("telefono").item(0);
+			telefono.setTextContent(nuevoTelefono);
+			grabarXML(doc, fichero);
+			System.out.println("Contacto modificado");
+		}else {
+			System.out.println("El contacto no existe");
 		}
-		if (existe == false) {
-			System.out.println("No existe contacto de nombre " + nombreContacto + " por lo que no puede ser modificado");
-		}
+
 	}
 
 	// ---------------------------------------------------------------------------
+	// FUNCION PARA ENCONTRAR UN CONTACTO
+	// doc que simboliza el XMl
+	public static Element existeContacto(String nombreContacto, Document doc) {
+		// leemos el XMl y lo almacenamos en el objeto doc
+		Element respuesta = null;
+		// lista de contactos
+		NodeList listaContactos = doc.getElementsByTagName("contacto");
+		// leemos lista de contacto
+		for (int i = 0; i < listaContactos.getLength(); i++) {
+			Node nodo = listaContactos.item(i);
+			Element contacto = (Element) nodo;
+			String nombre = contacto.getElementsByTagName("nombre").item(0).getTextContent();
+			if (nombre.equalsIgnoreCase(nombreContacto)) {// si son iguales
+				respuesta = contacto;
+			}
+		}
+		return respuesta;
+	}
+	// ---------------------------------------------------------------------------
+
 }
