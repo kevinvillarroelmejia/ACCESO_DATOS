@@ -1,13 +1,14 @@
 {
-"agenda": [
-
-{"nombre": "Juan Perez",
-"dni":"555555F",
-"telefono": "600111222"},
-
-{"nombre": "Maria Lopez",
-"dni":"222222G",
-"telefono": "600333444"}
-]
-
+  "agenda": [
+    {
+      "nombre": "Juan Perez",
+      "telefono": "600111222",
+      "dni": "555555F"
+    },
+    {
+      "nombre": "Maria Lopez",
+      "telefono": "600333444",
+      "dni": "222222G"
+    }
+  ]
 }
