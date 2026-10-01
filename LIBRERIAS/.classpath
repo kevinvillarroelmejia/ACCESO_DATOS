@@ -6,6 +6,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/IES FRANCISCO DE GOYA/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/ACCESO_DATOS/LIBRERIAS/librerias/gson-2.14.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
