@@ -68,6 +68,7 @@ public class Ejer_Agenda_JSON {
 	}
 	
 	
+	
 	private static List<Contacto> cargarListaAgenda(String ruta) {
 		List<Contacto> contactos=null;
 		try (Reader lector=new FileReader(ruta)){
