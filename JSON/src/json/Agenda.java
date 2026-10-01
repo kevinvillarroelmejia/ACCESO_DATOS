@@ -19,4 +19,5 @@ public class Agenda {
 	public void setContactos(List<Contacto> contactos) {
 		this.contactos = contactos;
 	}
+	
 }
