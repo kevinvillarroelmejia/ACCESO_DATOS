@@ -16,4 +16,8 @@ public class Agenda {
 		return contactos;
 	}
 
+	public void setContactos(List<Contacto> contactos) {
+		this.contactos = contactos;
+	}
+
 }

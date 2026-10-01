@@ -11,13 +11,22 @@ public class Contacto {
 		this.telefono=telefono;
 		this.dni=dni;
 	}
-
-	public void mostrar() {
-		System.out.println("----INFORMACION DE CONTACTO----");
-		System.out.println("Nombre "+this.nombre);
-		System.out.println("Telefono "+this.telefono);
-		System.out.println("DNI: "+this.dni+"\n");
+	
+	@Override
+	public String toString() {
+		return "------INFORMACION DE CONTACTO------\n"
+				+ "Nombre "+this.nombre+"\n"+
+				"Telefono "+this.telefono+"\n"+
+				"DNI: "+this.dni+"\n";
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+	
+	
+	
+
 	
 	
 }
