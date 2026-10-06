@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<agenda>
+    <contacto>
+        <nombre>jose maria</nombre>
+        <telefono>11122233</telefono>
+        <dni> 55533300F</dni>
+    </contacto>
+        	
+	
+    
+    <contacto>
+        <nombre>kevin villarroel</nombre>
+        <telefono>999888777</telefono>
+		<dni> 999333111K</dni>
+    </contacto>
+        	
+	
+		
+
+    
+
+</agenda>
