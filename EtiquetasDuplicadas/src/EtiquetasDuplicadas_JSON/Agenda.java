@@ -1,4 +1,4 @@
-package de_XML_a_JSON;
+package EtiquetasDuplicadas_JSON;
 
 import java.util.List;
 
