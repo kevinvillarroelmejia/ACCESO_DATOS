@@ -23,7 +23,7 @@ public class ejer_EtiquetasDuplicadas_JSON {
 				System.out.println(c);
 			}
 		} catch (Exception e) {
-			
+			System.out.println("error 1");
 		}
 
 	}
