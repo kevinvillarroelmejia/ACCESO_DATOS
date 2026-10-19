@@ -40,6 +40,7 @@ public class Ejer_Agenda_JSON {
 			System.out.println("Error " + e.getMessage());
 		}
 	}
+	
 /*
 	private static void leerAgenda2(String ruta) {
 		List<Contacto> contactos = cargarListaAgenda(ruta);
