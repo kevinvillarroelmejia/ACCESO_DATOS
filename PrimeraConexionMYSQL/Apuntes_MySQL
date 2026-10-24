@@ -1,0 +1,12 @@
+
+datos atomicos
+
+para saber guardar los datos en Mysql hacemos un commit
+=============
+QUE PASA SI HAY MUCHAS CONEXIONES SIMULTANEAMENTE:
+COMO AMAZON FACEBOOK
+
+para solucionar esto hacemos un pool de conexiones
+se activan 100 conexiones cuando se llenan la conexion 101 se queda en cola esperando
+
+
