@@ -16,7 +16,7 @@ public class Main_DeFicheroTexto_JSON {
 	public static final String FICHERO_TXT = "src" + File.separator + "ficheroTexto_JSON" + File.separator
 			+ "stock.txt";
 	
-	public static final String FICHERO_JSON="src"+File.separator+"ficheroTexto_JSON"+File.separator+"articulosJSON.json";
+	public static final String FICHERO_JSON="src"+File.separator+"ficheroTexto_JSON"+File.separator+"articulosJSON";
 
 	public static void main(String[] args) {
 		cargarJSON(leerTXT_returnlistaArticulos());
