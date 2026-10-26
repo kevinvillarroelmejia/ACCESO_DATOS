@@ -7,7 +7,10 @@ public class Articulo {
 
 	
 	public Articulo(String refe,String descripcion, int stock) {
-		
-		
+		this.referencia=refe;
+		this.descripcion=descripcion;
+		this.Stock=stock;
 	}
+	
+	
 }
