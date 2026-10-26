@@ -1,0 +1,6 @@
+{
+  "agenda": [
+    { "dni": "", "nombre": "Ana López", "telefono": "600111222", "email": "ana@correo.es" },
+    { "dni": "", "nombre": "Luis Pérez", "telefono": "611333444", "email": "luis@correo.es" }
+  ]
+}
