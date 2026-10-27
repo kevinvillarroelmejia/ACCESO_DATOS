@@ -54,7 +54,6 @@ public class Main_DeFicheroTexto_JSON {
 		} catch (Exception e) {
 			System.out.println("error " + e.getMessage());
 		}
-		
 	}
 
 }

@@ -1,0 +1,39 @@
+[
+  {
+    "idPokedex": "152",
+    "nombrePokemon": "Chikorita",
+    "peso": "6.4",
+    "altura": "0.9",
+    "tipo1": "Planta"
+  },
+  {
+    "idPokedex": "158",
+    "nombrePokemon": "Totodile",
+    "peso": "9.5",
+    "altura": "0.6",
+    "tipo1": "Agua"
+  },
+  {
+    "idPokedex": "163",
+    "nombrePokemon": "Hoothoot",
+    "peso": "21.2",
+    "altura": "0.7",
+    "tipo1": "Normal",
+    "tipo2": "Volador"
+  },
+  {
+    "idPokedex": "155",
+    "nombrePokemon": "Cyndaquil",
+    "peso": "7.9",
+    "altura": "0.5",
+    "tipo1": "Fuego"
+  },
+  {
+    "idPokedex": "167",
+    "nombrePokemon": "Spinarak",
+    "peso": "8.5",
+    "altura": "0.5",
+    "tipo1": "Bicho",
+    "tipo2": "Veneno"
+  }
+]
