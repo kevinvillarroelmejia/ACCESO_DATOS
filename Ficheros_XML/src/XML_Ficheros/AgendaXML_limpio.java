@@ -43,6 +43,8 @@ public class AgendaXML_limpio {
 
 	// MÉTODOS CLAVE -------------------------------------------------
 	public static Document leerXML(String fichero) throws Exception {
+		
+		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		return builder.parse(fichero);
