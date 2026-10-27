@@ -75,5 +75,4 @@ public class Main_pokemon_TXT_JSON {
 		}
 		return listaPokemon;
 	}
-
 }
