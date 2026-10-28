@@ -47,7 +47,19 @@ public class Main_Pokemon {
 
 	}
 
+	// METODO PARA GUARDAR EL XML LOGICO AL DISCO FISICO
+	public static void grabarXML(Document doc, String fichero) throws Exception {
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(fichero);
+		transformer.transform(source, result);
+	}
+
 	// si no estoy mal necesitamos este metodo para hacer referencia al XML
+	//Document: Es un arbol de etiquetas
 	private static Document leerOCrearXML(String fichero, String nombreRaiz) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
@@ -60,20 +72,13 @@ public class Main_Pokemon {
 			Element raiz = doc.createElement(nombreRaiz); // y le creamos la raíz
 			doc.appendChild(raiz);
 		}
-		return doc; // un solo return
+		return doc;
 	}
-
-	// METODO PARA GUARDAR EL XML LOGICO AL DISCO FISICO
-	public static void grabarXML(Document doc, String fichero) throws Exception {
-		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(fichero);
-		transformer.transform(source, result);
-	}
-
+	
+	//Para guardar en disco el XML el flujo es:
+	//metodo leerOCrearXML(ficheroXML, "pokemons");
+	//hacer las modificaciones en el XMl
+	//METODO cargarXMl
 	public static void guardar_pokemon(String ficheroXML, List<Pokemon> listaPokemon) throws Exception {
 		Document document = leerOCrearXML(ficheroXML, "pokemons");
 		Element raiz = document.getDocumentElement(); // CAMBIO: cogemos <pokemons>
@@ -81,11 +86,12 @@ public class Main_Pokemon {
 		for (Pokemon pokemon : listaPokemon) {
 
 			Element elementoPokemon = document.createElement("pokemon"); // <pokemon> de este pokémon
-
+			
 			Element elementoIDPokemon = document.createElement("id");
 			elementoIDPokemon.setTextContent(pokemon.getIdPokedex());
 			elementoPokemon.appendChild(elementoIDPokemon);// para que cuelgue de pokemon
 
+			
 			Element elementoNombre = document.createElement("nombre");
 			elementoNombre.setTextContent(pokemon.getNombrePokemon());
 			elementoPokemon.appendChild(elementoNombre);
