@@ -1,0 +1,26 @@
+{
+  "pokemons": [
+    {
+      "idPokemon": 147,
+      "nombre": "Dratini",
+      "peso": 3.3,
+      "altura": 1.8,
+      "tipo1": "Dragón"
+    },
+    {
+      "idPokemon": 148,
+      "nombre": "Dragonair",
+      "peso": 16.5,
+      "altura": 4.0,
+      "tipo1": "Dragón"
+    },
+    {
+      "idPokemon": 149,
+      "nombre": "Dragonite",
+      "peso": 210.0,
+      "altura": 2.2,
+      "tipo1": "Dragón",
+      "tipo2": "Volador"
+    }
+  ]
+}

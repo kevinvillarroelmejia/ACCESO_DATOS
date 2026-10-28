@@ -33,6 +33,8 @@ ponlos en la misma línea. Así:
  * 
  * */
 
+
+//[MAIN] TXT → XML
 public class Main_Pokemon {
 	public static final String FICHERO_TXT = "src" + File.separator + "pokemon_TXT_XML" + File.separator
 			+ "pokemon.txt";
@@ -47,7 +49,7 @@ public class Main_Pokemon {
 
 	}
 
-	// METODO PARA GUARDAR EL XML LOGICO AL DISCO FISICO
+	// [ESCRIBIR XML] guarda el Document en el fichero (comodín)
 	public static void grabarXML(Document doc, String fichero) throws Exception {
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
@@ -58,8 +60,7 @@ public class Main_Pokemon {
 		transformer.transform(source, result);
 	}
 
-	// si no estoy mal necesitamos este metodo para hacer referencia al XML
-	//Document: Es un arbol de etiquetas
+	// [LEER XML] abre el XML si existe; si no, lo crea con su raíz (comodín)
 	private static Document leerOCrearXML(String fichero, String nombreRaiz) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
@@ -75,10 +76,7 @@ public class Main_Pokemon {
 		return doc;
 	}
 	
-	//Para guardar en disco el XML el flujo es:
-	//metodo leerOCrearXML(ficheroXML, "pokemons");
-	//hacer las modificaciones en el XMl
-	//METODO cargarXMl
+	// [ESCRIBIR XML] lista de pokémon → XML (2 tipos juntos en <tipo>)
 	public static void guardar_pokemon(String ficheroXML, List<Pokemon> listaPokemon) throws Exception {
 		Document document = leerOCrearXML(ficheroXML, "pokemons");
 		Element raiz = document.getDocumentElement(); // CAMBIO: cogemos <pokemons>
@@ -118,17 +116,7 @@ public class Main_Pokemon {
 		grabarXML(document, ficheroXML);
 	}
 
-	public static void guardarEnDisco_XML(Document doc, String fichero) throws Exception {
-		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
-		DOMSource source = new DOMSource(doc);
-		StreamResult result = new StreamResult(fichero);
-		transformer.transform(source, result);
-	}
-
-	//METODO QUE LEE UN FICHERO Y VUELVE UNA LISTA
+	// [LEER TXT] fichero TXT → lista de pokémon (1 o 2 tipos)
 	public static List<Pokemon> leerPokemonTXT(String fichero) {
 		List<Pokemon> listaPokemon = new ArrayList<Pokemon>();
 		try (BufferedReader lector = new BufferedReader(new FileReader(fichero))) {

@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
-
+	// [MAIN] TXT animes + TXT personajes → mostrar por consola
 	public static void main(String[] args) throws IOException {
 
 		String rutaAnimes = "src" + File.separator + "PersonajesAnimes" + File.separator + "animes.txt";
@@ -26,6 +26,7 @@ public class Main {
 		mostrarPersonajes_Sin_Anime(diccionario, rutaPersonajes);
 	}
 
+	// [LEER TXT] animes.txt → TreeMap código → nombre del anime
 	public static TreeMap<Integer, String> diccionarioAnimes(String ficheroAnime) {
 		TreeMap<Integer, String> diccionarioAnimes = new TreeMap<Integer, String>();
 		Integer clave = 0;
@@ -46,7 +47,7 @@ public class Main {
 		return diccionarioAnimes;
 	}
 
-	// PERSONAJES SIN ANIME
+	// [MOSTRAR] personajes cuyo código no está en ningún anime
 	public static void mostrarPersonajes_Sin_Anime(TreeMap<Integer, String> dicAnimes, String ficheroPersonajes)
 			throws IOException {
 		// por cada entrada del diccionario el fichero se abre y recorre si coinciden
@@ -77,7 +78,7 @@ public class Main {
 
 	}
 
-	// devuelve arrayList con la lista de los personajes que tengan el mismo codigo
+	// [BUSCAR] personajes de un código de anime → lista de nombres
 	public static ArrayList<String> personajesDe(int codigo, String ficheroPersonaje) {
 		ArrayList<String> personajes = new ArrayList<String>();
 		try (BufferedReader lector = new BufferedReader(new FileReader(ficheroPersonaje))) {
@@ -98,7 +99,8 @@ public class Main {
 		}
 		return personajes;
 	}
-
+	
+	// [MOSTRAR] cada anime con sus personajes ("No hay personajes" si no tiene)
 	public static void mostrarAnimesConPersonajes(TreeMap<Integer, String> dicAnimes, String ficheroPersonajes) {
 		// por cada entrada del diccionario el fichero se abre y recorre si coinciden
 		// las claves

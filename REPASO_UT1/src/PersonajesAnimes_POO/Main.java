@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+
+//[MAIN] TXT animes + TXT personajes → DAT (binario) → leer DAT
 public class Main {
 
 	public static void main(String[] args) {
@@ -47,7 +49,7 @@ public class Main {
 		return diccionarioAnimes;
 	}
 
-	// devuelve arrayList con la lista de los personajes que tengan el mismo codigo
+	// [BUSCAR] personajes de un código de anime → lista de nombres
 	public static ArrayList<String> personajesDe(int codigo, String ficheroPersonaje) {
 		ArrayList<String> personajes = new ArrayList<String>();
 		try (BufferedReader lector = new BufferedReader(new FileReader(ficheroPersonaje))) {
@@ -69,7 +71,7 @@ public class Main {
 	}
 
 	
-	//ESCRIBIR OBJECTO -- FICHERO BINARIO
+	// [ESCRIBIR DAT] crea objetos Personaje (anime + nombre) y los guarda en binario
 	public static ArrayList<Personaje> escribirPersonajeDAT(TreeMap<Integer, String> dicAnimes, String ficheroPersonajes,String ficheroBAT) {
 		// por cada entrada del diccionario el fichero se abre y recorre si coinciden
 		// las claves
@@ -88,8 +90,6 @@ public class Main {
 				}
 			}
 		}
-		
-		
 		try (ObjectOutputStream binario = new ObjectOutputStream(new FileOutputStream(ficheroBAT))) {
 			binario.writeObject(listaOBjetosPersonaje);
 		} catch (Exception e) {
@@ -99,7 +99,7 @@ public class Main {
 	}
 	
 	
-	//LEER OBJECTO -- FICHERO BINARIO
+	// [LEER DAT] lee la lista del binario y la imprime
 	public static void leerPersonajeDAT(String ficheroBAT) {
 		ArrayList<Personaje> lista = null;
 		try (ObjectInputStream binario = new ObjectInputStream(new FileInputStream(ficheroBAT))) {

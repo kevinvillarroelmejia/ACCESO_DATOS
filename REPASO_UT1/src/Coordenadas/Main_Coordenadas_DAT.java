@@ -5,13 +5,14 @@ import java.io.File;
 import java.io.FileInputStream;
 
 public class Main_Coordenadas_DAT {
-
+	// [MAIN] Leer coordenadas.dat (binario de datos primitivos)
 	public static void main(String[] args) {
 		String ficheroDAT = "src" + File.separator + "Coordenadas" + File.separator + "coordenadas.dat";
 
 		recorrerConAvailable(ficheroDAT);
 		
 	}
+	// [LEER DAT] DataInputStream: int + 2 float + 4 char por satélite, hasta available() == 0
 	public static void recorrerConAvailable(String ficheroBinario) {
 		try (DataInputStream binario = new DataInputStream(new FileInputStream(ficheroBinario))) {
 			while (binario.available() > 0) { // bytes que quedan

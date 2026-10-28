@@ -30,13 +30,15 @@ public class Main_Agenda {
 	public static final String FICHERO_JSON = "src" + File.separator + "Contactos_Migrar_XML_JSON" + File.separator
 			+ "agenda.json";
 
+	
+	// [MAIN] XML agenda → JSON agenda
 	public static void main(String[] args) throws Exception {
 
 		List<Contacto> listaAgenda = leerAgendaXML(FICHERO_XML);
 		cargarJSON(listaAgenda);
 
 	}
-
+	// [ESCRIBIR JSON] lista de contactos → JSON con raíz "agenda" (clase Agenda)
 	public static void cargarJSON(List<Contacto> listaAgenda) {
 		Agenda agenda = new Agenda(listaAgenda); 
 		try (Writer escritor = new FileWriter(FICHERO_JSON)) {
@@ -48,7 +50,9 @@ public class Main_Agenda {
 			System.out.println("error " + e.getMessage());
 		}
 	}
-
+	
+	
+	// [LEER XML] agenda.xml → lista de contactos (nombre + teléfono)
 	public static List<Contacto> leerAgendaXML(String ficheroXML) throws Exception {
 		List<Contacto> listContactos = new ArrayList<Contacto>();
 
@@ -72,7 +76,7 @@ public class Main_Agenda {
 		return listContactos;
 	}
 
-	// Document: Es un arbol de etiquetas
+	// [LEER XML] abre el XML si existe; si no, lo crea con su raíz (comodín)
 	private static Document leerOCrearXML(String fichero, String nombreRaiz) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();

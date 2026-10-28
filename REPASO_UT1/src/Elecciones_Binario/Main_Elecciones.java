@@ -24,9 +24,8 @@ public class Main_Elecciones {
 
 		verResultados(1730);
 	}
-
+	// [MODIFICAR DAT] carga el DAT (o lo crea con los 4 partidos) → suma votos → graba → muestra
 	public static void anyadirVotos(String nombrePartido, int numAyadirVotos) {
-
 		boolean encontrado = false;
 		ArrayList<PartidoPolitico> listaPartidosPoliticos = new ArrayList<PartidoPolitico>();
 		File fichero = new File(FICHERO_DAT);
@@ -76,7 +75,7 @@ public class Main_Elecciones {
 
 	}
 
-	// extraemos codigo que se repetia --> suma votos al partido
+	// [MODIFICAR] suma los votos al partido en la lista (en memoria)
 	private static void sumarVotos(String nombrePartido, int numAyadirVotos, boolean encontrado,
 			ArrayList<PartidoPolitico> listaPartidosPoliticos) {
 		for (PartidoPolitico persona : listaPartidosPoliticos) {
@@ -86,7 +85,7 @@ public class Main_Elecciones {
 			}
 		}
 	}
-
+	// [MOSTRAR] % de escrutinio + partidos ordenados por votos (Comparable)
 	public static void verResultados(int censo) {
 		ArrayList<PartidoPolitico> listaPartidosPoliticos = new ArrayList<PartidoPolitico>();
 		File fichero = new File(FICHERO_DAT);
