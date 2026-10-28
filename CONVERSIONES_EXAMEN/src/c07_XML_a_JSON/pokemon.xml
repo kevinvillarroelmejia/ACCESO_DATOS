@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pokemons>
+    <pokemon>
+        <codigo>25</codigo>
+        <nombre>Pikachu</nombre>
+        <peso>6.0</peso>
+    </pokemon>
+    <pokemon>
+        <codigo>152</codigo>
+        <nombre>Chikorita</nombre>
+        <peso>6.4</peso>
+    </pokemon>
+    <pokemon>
+        <codigo>155</codigo>
+        <nombre>Cyndaquil</nombre>
+        <peso>7.9</peso>
+    </pokemon>
+    <pokemon>
+        <codigo>158</codigo>
+        <nombre>Totodile</nombre>
+        <peso>9.5</peso>
+    </pokemon>
+</pokemons>

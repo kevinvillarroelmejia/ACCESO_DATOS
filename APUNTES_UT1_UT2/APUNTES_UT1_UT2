@@ -1,0 +1,191 @@
+=====================================================================
+ ACCESO A DATOS - BBDD + COMBINACIONES (apuntes para el examen)
+   1. Cargar un .sql en Docker
+   2. Conectar desde Java (casa / clase / pool)
+   3. Modificar la BBDD: INSERT, UPDATE, DELETE
+   4. Las 18 combinaciones: proyecto CONVERSIONES_EXAMEN (paquete y metodo)
+=====================================================================
+
+---------------------------------------------------------------------
+ 1. CARGAR UN .SQL EN EL DOCKER (cambiar examen.sql por el del profe)
+---------------------------------------------------------------------
+ FUERA del contenedor (en la carpeta donde esta el .sql)
+   cd ~/Documentos/Scripts_BaseDatos          <- carpeta del .sql
+   docker cp examen.sql mysql:/root           <- copiar al contenedor
+   docker exec -it mysql bash                 <- entrar al contenedor
+ DENTRO del contenedor (bash-5.1#)
+   mysql -u root -pabc123 < /root/examen.sql  <- cargar
+   exit                                       <- salir
+
+   * El aviso "Using a password on the command line..." es normal.
+
+ COMPROBACIONES
+   docker ps                      <- tiene que salir "mysql" con Up
+   docker start mysql             <- si no aparece
+   mysql -u root -pabc123 -e "show databases;"
+   mysql -u root -pabc123 -e "use NOMBRE_BD; show tables;"
+
+ SI ALGO FALLA
+   "no such file or directory" en docker cp
+      -> no estas en la carpeta del .sql: cd a ella o ruta completa
+   "No database selected" al cargar (el script no crea la BD)
+      mysql -u root -pabc123 -e "create database examen;"
+      mysql -u root -pabc123 examen < /root/examen.sql
+   "permission denied" con docker -> sudo delante
+
+---------------------------------------------------------------------
+ 2. CONECTAR DESDE JAVA
+---------------------------------------------------------------------
+ Build Path: mysql-connector-j-x.x.x.jar
+             (+ si hay pool: commons-dbcp2, commons-pool2, commons-logging)
+
+   CLASE:  jdbc:mysql://172.17.0.1:3306/NOMBRE_BD    alumno / abc123
+   CASA:   jdbc:mysql://localhost:3306/NOMBRE_BD     root   / abc123
+
+ SIN POOL
+   try (Connection conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD)) {
+       ...
+   } catch (SQLException e) {
+       System.out.println("Error: " + e.getMessage());   // CON println
+   }
+
+ CON POOL (clase Pool_ConexionesSimultaneas copiada en el paquete)
+   try (Connection conexion = Pool_ConexionesSimultaneas.getConnection()) {
+   * La URL / usuario / password van DENTRO DEL POOL, no en el main.
+   * Si el programa se queda "colgado" sin hacer nada -> URL mal.
+
+---------------------------------------------------------------------
+ 3. MODIFICAR LA BBDD: INSERT, UPDATE, DELETE
+---------------------------------------------------------------------
+ SIEMPRE LO MISMO, SOLO CAMBIA LA SENTENCIA SQL:
+   PreparedStatement query = conexion.prepareStatement(SQL_CON_?);
+   query.setInt(1, ...); query.setString(2, ...); query.setDouble(3, ...);
+   int filas = query.executeUpdate();          // devuelve filas cambiadas
+   System.out.println("Filas afectadas: " + filas);
+
+   executeQuery()  -> SELECT                 -> devuelve ResultSet
+   executeUpdate() -> INSERT, UPDATE, DELETE -> devuelve int
+
+ PLANTILLAS SQL
+   SELECT * FROM tabla WHERE col = ?
+   INSERT INTO tabla (col1, col2, col3) VALUES (?, ?, ?)
+   UPDATE tabla SET col1 = ?, col2 = ? WHERE col3 = ?
+   DELETE FROM tabla WHERE col = ?
+
+   * Los ? se numeran de IZQUIERDA a DERECHA empezando en 1.
+   * UPDATE y DELETE SIEMPRE con WHERE (sin WHERE cambia/borra TODO).
+
+ PASOS DEL EJERCICIO (patron MODIFICAR - Boletin26 E2_UpdateEmpleadoAsignado,
+                      carpeta del ano pasado, NO esta en el repo)
+   1. EXISTE cada dato que me pasan? (SELECT + last/getRow) -> bandera
+   2. Si alguna bandera es false -> mensaje y NO se modifica
+   3. Mostrar el ANTES si lo piden
+   4. executeUpdate()
+   5. Mostrar el DESPUES / filas afectadas
+
+ ERRORES TIPICOS
+   - INSERT con una clave primaria que ya existe
+       -> SQLIntegrityConstraintViolationException (Duplicate entry)
+       -> comprobar ANTES con un SELECT si ya existe
+   - DELETE de una fila que otra tabla usa (clave foranea)
+       -> error "foreign key constraint fails"
+       -> borrar primero en la tabla HIJA (pokemon_tipo) y luego en la PADRE (pokemon)
+   - INSERT al reves: hay que meter primero la PADRE (pokemon) y luego la HIJA (pokemon_tipo)
+
+ COUNT(*) u otro valor unico
+   ResultSet rs = query.executeQuery();
+   rs.next();                     // sin while
+   int total = rs.getInt(1);      // por posicion (la columna no tiene nombre)
+
+ TABLAS pokemondb
+   pokemon(numero_pokedex, nombre, peso, altura)
+   tipo(id_tipo, nombre, id_tipo_ataque)
+   pokemon_tipo(numero_pokedex, id_tipo)
+   evoluciona_de(pokemon_evolucionado, pokemon_origen)
+
+---------------------------------------------------------------------
+ 4. LAS 18 COMBINACIONES -> proyecto CONVERSIONES_EXAMEN
+    Cualquier conversion = LEER -> List<Pokemon> -> ESCRIBIR
+    Cada paquete: Main_X_a_Y.java + Pokemon.java (+ Pokedex.java si hay JSON)
+    + el fichero de entrada. Copiar el paquete entero y cambiar lo "CAMBIAR".
+---------------------------------------------------------------------
+
+ Nº  PAQUETE            CLASE                LEER (metodo)          ESCRIBIR (metodo)
+  1  c01_TXT_a_XML      Main_TXT_a_XML       leerTXT                escribirXML
+  2  c02_TXT_a_JSON     Main_TXT_a_JSON      leerTXT                escribirJSON
+  3  c03_TXT_a_BBDD     Main_TXT_a_BBDD      leerTXT                escribirBBDD
+  4  c04_DAT_a_XML      Main_DAT_a_XML       leerDAT                escribirXML
+  5  c05_DAT_a_JSON     Main_DAT_a_JSON      leerDAT                escribirJSON
+  6  c06_DAT_a_BBDD     Main_DAT_a_BBDD      leerDAT                escribirBBDD
+  7  c07_XML_a_JSON     Main_XML_a_JSON      leerXML                escribirJSON
+  8  c08_XML_a_TXT      Main_XML_a_TXT       leerXML                escribirTXT
+  9  c09_XML_a_DAT      Main_XML_a_DAT       leerXML                escribirDAT
+ 10  c10_XML_a_BBDD     Main_XML_a_BBDD      leerXML                escribirBBDD
+ 11  c11_JSON_a_XML     Main_JSON_a_XML      leerJSON               escribirXML
+ 12  c12_JSON_a_TXT     Main_JSON_a_TXT      leerJSON               escribirTXT
+ 13  c13_JSON_a_DAT     Main_JSON_a_DAT      leerJSON               escribirDAT
+ 14  c14_JSON_a_BBDD    Main_JSON_a_BBDD     leerJSON               escribirBBDD
+ 15  c15_BBDD_a_XML     Main_BBDD_a_XML      leerBBDD               escribirXML
+ 16  c16_BBDD_a_JSON    Main_BBDD_a_JSON     leerBBDD               escribirJSON
+ 17  c17_BBDD_a_TXT     Main_BBDD_a_TXT      leerBBDD               escribirTXT
+ 18  c18_BBDD_a_DAT     Main_BBDD_a_DAT      leerBBDD               escribirDAT
+
+ En TODOS los paquetes ademas:  main  y  mostrarLista (imprime lo leido)
+
+---------------------------------------------------------------------
+ QUE HACE CADA METODO (y en que paquetes esta)
+---------------------------------------------------------------------
+ LEER (devuelven List<Pokemon>)
+   leerTXT(fichero)            c01 c02 c03
+       BufferedReader + readLine + split(SEPARADOR) -> new Pokemon
+   leerDAT(fichero)            c04 c05 c06
+       ObjectInputStream + readObject -> la lista entera de golpe
+       + crearDATdePrueba(fichero): crea el .dat de ejemplo si no existe
+   leerXML(fichero)            c07 c08 c09 c10
+       parse + getElementsByTagName(ETIQUETA_POKEMON) + for con item(i)
+       + textoDe(elemento, etiqueta): saca el texto de <etiqueta>
+   leerJSON(fichero)           c11 c12 c13 c14
+       gson.fromJson(lector, Pokedex.class).getPokemons()
+   leerBBDD(conexion)          c15 c16 c17 c18
+       SELECT numero_pokedex, nombre, peso FROM pokemon + while(next)
+
+ ESCRIBIR (reciben List<Pokemon>)
+   escribirTXT(lista, fichero)      c08 c12 c17
+       BufferedWriter + write("codigo, nombre, peso") + newLine
+   escribirDAT(lista, fichero)      c09 c13 c18
+       ObjectOutputStream + writeObject(lista)
+   escribirXML(lista, fichero)      c01 c04 c11 c15
+       newDocument + raiz + un <pokemon> por objeto
+       + anyadirHijo(doc, padre, etiqueta, texto): createElement + setTextContent + appendChild
+       + grabarXML(doc, fichero): Transformer, guarda en disco
+   escribirJSON(lista, fichero)     c02 c05 c07 c16
+       new Pokedex(lista) + gson.toJson(pokedex, escritor)
+   escribirBBDD(conexion, lista)    c03 c06 c10 c14
+       INSERT INTO pokemon (...) VALUES (?, ?, ?, ?) + executeUpdate
+       + existePokemon(conexion, codigo): SELECT ... WHERE numero_pokedex = ?
+         (si ya existe NO se inserta)
+
+---------------------------------------------------------------------
+ QUE CAMBIAR SEGUN EL ENUNCIADO (todo marcado con // CAMBIAR)
+---------------------------------------------------------------------
+   Pokemon.java   atributos (+ constructor, getters, toString)
+   FICHERO_...    nombre del fichero de entrada / salida
+   TXT            SEPARADOR y la posicion de campos[0], [1], [2]
+   XML            RAIZ_XML y ETIQUETA_POKEMON / _CODIGO / _NOMBRE / _PESO
+   JSON           @SerializedName("pokemons") en Pokedex.java (nombre de la raiz)
+                  atributos de Pokemon = claves del JSON
+   BBDD           URL / USUARIO / PASSWORD y el SQL (tabla y columnas)
+   DAT            si te dan el .dat: quitar crearDATdePrueba del main
+                  (y la clase tiene que ser la misma con la que se escribio)
+
+---------------------------------------------------------------------
+ EXTRA: EJERCICIOS DE MODIFICAR (repo ACCESO_DATOS, no estan en el proyecto)
+---------------------------------------------------------------------
+   MODIFICAR JSON  JSON / json / Ejer_Agenda_JSON.java
+                   (crearContacto, modificarTelefono, eliminarContacto, buscarContacto)
+   MODIFICAR XML   Ficheros_XML / XML_Ficheros / AgendaXML_limpio.java
+                   (aniadirContacto, modificarTelefono, eliminarContacto, existeContacto)
+   MODIFICAR DAT   REPASO_UT1 / Elecciones_Binario / Main_Elecciones.java -> anyadirVotos
+   UPDATE BBDD     Boletin26 / E2_UpdateEmpleadoAsignado (carpeta del ano pasado)
+   DELETE BBDD     PrimeraConexionMYSQL / PrimeroConexion.java -> main
+=====================================================================

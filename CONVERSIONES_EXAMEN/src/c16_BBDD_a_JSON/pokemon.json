@@ -1,0 +1,759 @@
+{
+  "pokemons": [
+    {
+      "codigo": 1,
+      "nombre": "Bulbasaur",
+      "peso": 6.9
+    },
+    {
+      "codigo": 2,
+      "nombre": "Ivysaur",
+      "peso": 13.0
+    },
+    {
+      "codigo": 3,
+      "nombre": "Venasaur",
+      "peso": 100.0
+    },
+    {
+      "codigo": 4,
+      "nombre": "Charmander",
+      "peso": 8.5
+    },
+    {
+      "codigo": 5,
+      "nombre": "Charmeleon",
+      "peso": 19.0
+    },
+    {
+      "codigo": 6,
+      "nombre": "Charizard",
+      "peso": 90.5
+    },
+    {
+      "codigo": 7,
+      "nombre": "Squirtle",
+      "peso": 9.0
+    },
+    {
+      "codigo": 8,
+      "nombre": "Wartortle",
+      "peso": 22.5
+    },
+    {
+      "codigo": 9,
+      "nombre": "Blastoise",
+      "peso": 85.5
+    },
+    {
+      "codigo": 10,
+      "nombre": "Caperpie",
+      "peso": 2.9
+    },
+    {
+      "codigo": 11,
+      "nombre": "Metapod",
+      "peso": 9.9
+    },
+    {
+      "codigo": 12,
+      "nombre": "Butterfree",
+      "peso": 32.0
+    },
+    {
+      "codigo": 13,
+      "nombre": "Weedle",
+      "peso": 3.2
+    },
+    {
+      "codigo": 14,
+      "nombre": "Kakuna",
+      "peso": 10.0
+    },
+    {
+      "codigo": 15,
+      "nombre": "Beedrill",
+      "peso": 29.5
+    },
+    {
+      "codigo": 16,
+      "nombre": "Pidgey",
+      "peso": 1.8
+    },
+    {
+      "codigo": 17,
+      "nombre": "Pidgeotto",
+      "peso": 30.0
+    },
+    {
+      "codigo": 18,
+      "nombre": "Pidgeot",
+      "peso": 39.5
+    },
+    {
+      "codigo": 19,
+      "nombre": "Rattata",
+      "peso": 3.5
+    },
+    {
+      "codigo": 20,
+      "nombre": "Raticate",
+      "peso": 18.5
+    },
+    {
+      "codigo": 21,
+      "nombre": "Spearow",
+      "peso": 2.0
+    },
+    {
+      "codigo": 22,
+      "nombre": "Fearow",
+      "peso": 38.0
+    },
+    {
+      "codigo": 23,
+      "nombre": "Ekans",
+      "peso": 6.9
+    },
+    {
+      "codigo": 24,
+      "nombre": "Arbok",
+      "peso": 65.0
+    },
+    {
+      "codigo": 25,
+      "nombre": "Pikachu",
+      "peso": 6.0
+    },
+    {
+      "codigo": 26,
+      "nombre": "Raichu",
+      "peso": 30.0
+    },
+    {
+      "codigo": 27,
+      "nombre": "Sandshrew",
+      "peso": 12.0
+    },
+    {
+      "codigo": 28,
+      "nombre": "Sandslash",
+      "peso": 29.5
+    },
+    {
+      "codigo": 29,
+      "nombre": "Nidoran♀",
+      "peso": 7.0
+    },
+    {
+      "codigo": 30,
+      "nombre": "Nidorina",
+      "peso": 20.0
+    },
+    {
+      "codigo": 31,
+      "nombre": "Nidoqueen",
+      "peso": 60.0
+    },
+    {
+      "codigo": 32,
+      "nombre": "Nidoran♂",
+      "peso": 9.0
+    },
+    {
+      "codigo": 33,
+      "nombre": "Nidorino",
+      "peso": 19.5
+    },
+    {
+      "codigo": 34,
+      "nombre": "Nidoking",
+      "peso": 62.0
+    },
+    {
+      "codigo": 35,
+      "nombre": "Clefairy",
+      "peso": 7.5
+    },
+    {
+      "codigo": 36,
+      "nombre": "Clefable",
+      "peso": 40.0
+    },
+    {
+      "codigo": 37,
+      "nombre": "Vulpix",
+      "peso": 9.9
+    },
+    {
+      "codigo": 38,
+      "nombre": "Ninetales",
+      "peso": 19.9
+    },
+    {
+      "codigo": 39,
+      "nombre": "Jigglypuff",
+      "peso": 5.5
+    },
+    {
+      "codigo": 40,
+      "nombre": "Wigglytuff",
+      "peso": 12.0
+    },
+    {
+      "codigo": 41,
+      "nombre": "Zubat",
+      "peso": 7.5
+    },
+    {
+      "codigo": 42,
+      "nombre": "Golbat",
+      "peso": 55.0
+    },
+    {
+      "codigo": 43,
+      "nombre": "Oddish",
+      "peso": 5.4
+    },
+    {
+      "codigo": 44,
+      "nombre": "Gloom",
+      "peso": 8.6
+    },
+    {
+      "codigo": 45,
+      "nombre": "Vileplume",
+      "peso": 18.6
+    },
+    {
+      "codigo": 46,
+      "nombre": "Paras",
+      "peso": 5.4
+    },
+    {
+      "codigo": 47,
+      "nombre": "Parasect",
+      "peso": 29.5
+    },
+    {
+      "codigo": 48,
+      "nombre": "Venonat",
+      "peso": 30.0
+    },
+    {
+      "codigo": 49,
+      "nombre": "Venomoth",
+      "peso": 12.5
+    },
+    {
+      "codigo": 50,
+      "nombre": "Digglet",
+      "peso": 0.8
+    },
+    {
+      "codigo": 51,
+      "nombre": "Dugtrio",
+      "peso": 33.3
+    },
+    {
+      "codigo": 52,
+      "nombre": "Meowth",
+      "peso": 4.2
+    },
+    {
+      "codigo": 53,
+      "nombre": "Persian",
+      "peso": 32.0
+    },
+    {
+      "codigo": 54,
+      "nombre": "Psyduck",
+      "peso": 19.6
+    },
+    {
+      "codigo": 55,
+      "nombre": "Golduck",
+      "peso": 76.6
+    },
+    {
+      "codigo": 56,
+      "nombre": "Mankey",
+      "peso": 28.0
+    },
+    {
+      "codigo": 57,
+      "nombre": "Primeape",
+      "peso": 32.0
+    },
+    {
+      "codigo": 58,
+      "nombre": "Growlithe",
+      "peso": 19.0
+    },
+    {
+      "codigo": 59,
+      "nombre": "Arcanine",
+      "peso": 155.0
+    },
+    {
+      "codigo": 60,
+      "nombre": "Poliwag",
+      "peso": 12.4
+    },
+    {
+      "codigo": 61,
+      "nombre": "Poliwhirl",
+      "peso": 20.0
+    },
+    {
+      "codigo": 62,
+      "nombre": "Poliwrath",
+      "peso": 54.0
+    },
+    {
+      "codigo": 63,
+      "nombre": "Abra",
+      "peso": 19.5
+    },
+    {
+      "codigo": 64,
+      "nombre": "Kadabra",
+      "peso": 56.5
+    },
+    {
+      "codigo": 65,
+      "nombre": "Alakazam",
+      "peso": 48.0
+    },
+    {
+      "codigo": 66,
+      "nombre": "Machop",
+      "peso": 19.5
+    },
+    {
+      "codigo": 67,
+      "nombre": "Mackoke",
+      "peso": 70.5
+    },
+    {
+      "codigo": 68,
+      "nombre": "Machamp",
+      "peso": 130.0
+    },
+    {
+      "codigo": 69,
+      "nombre": "Bellsprout",
+      "peso": 4.0
+    },
+    {
+      "codigo": 70,
+      "nombre": "Weepinbell",
+      "peso": 6.4
+    },
+    {
+      "codigo": 71,
+      "nombre": "Victreebel",
+      "peso": 15.5
+    },
+    {
+      "codigo": 72,
+      "nombre": "Tentacool",
+      "peso": 45.5
+    },
+    {
+      "codigo": 73,
+      "nombre": "Tentacruel",
+      "peso": 55.0
+    },
+    {
+      "codigo": 74,
+      "nombre": "Geodude",
+      "peso": 20.0
+    },
+    {
+      "codigo": 75,
+      "nombre": "Graveler",
+      "peso": 105.0
+    },
+    {
+      "codigo": 76,
+      "nombre": "Golem",
+      "peso": 300.0
+    },
+    {
+      "codigo": 77,
+      "nombre": "Ponyta",
+      "peso": 30.0
+    },
+    {
+      "codigo": 78,
+      "nombre": "Rapidash",
+      "peso": 95.0
+    },
+    {
+      "codigo": 79,
+      "nombre": "Slowpoke",
+      "peso": 36.0
+    },
+    {
+      "codigo": 80,
+      "nombre": "Slowbro",
+      "peso": 78.5
+    },
+    {
+      "codigo": 81,
+      "nombre": "Magnemite",
+      "peso": 6.0
+    },
+    {
+      "codigo": 82,
+      "nombre": "Magneton",
+      "peso": 60.0
+    },
+    {
+      "codigo": 83,
+      "nombre": "Farfetch\u0027d",
+      "peso": 15.0
+    },
+    {
+      "codigo": 84,
+      "nombre": "Doduo",
+      "peso": 39.2
+    },
+    {
+      "codigo": 85,
+      "nombre": "Dodrio",
+      "peso": 85.2
+    },
+    {
+      "codigo": 86,
+      "nombre": "Seel",
+      "peso": 90.0
+    },
+    {
+      "codigo": 87,
+      "nombre": "Dewgong",
+      "peso": 120.0
+    },
+    {
+      "codigo": 88,
+      "nombre": "Grimer",
+      "peso": 30.0
+    },
+    {
+      "codigo": 89,
+      "nombre": "Muk",
+      "peso": 30.0
+    },
+    {
+      "codigo": 90,
+      "nombre": "Shellder",
+      "peso": 4.0
+    },
+    {
+      "codigo": 91,
+      "nombre": "Cloyster",
+      "peso": 132.5
+    },
+    {
+      "codigo": 92,
+      "nombre": "Gastly",
+      "peso": 0.1
+    },
+    {
+      "codigo": 93,
+      "nombre": "Haunter",
+      "peso": 0.1
+    },
+    {
+      "codigo": 94,
+      "nombre": "Gengar",
+      "peso": 40.5
+    },
+    {
+      "codigo": 95,
+      "nombre": "Onix",
+      "peso": 210.0
+    },
+    {
+      "codigo": 96,
+      "nombre": "Drowzee",
+      "peso": 32.4
+    },
+    {
+      "codigo": 97,
+      "nombre": "Hypno",
+      "peso": 75.6
+    },
+    {
+      "codigo": 98,
+      "nombre": "Krabby",
+      "peso": 6.5
+    },
+    {
+      "codigo": 99,
+      "nombre": "Kingler",
+      "peso": 60.0
+    },
+    {
+      "codigo": 100,
+      "nombre": "Voltorb",
+      "peso": 10.4
+    },
+    {
+      "codigo": 101,
+      "nombre": "Electrode",
+      "peso": 66.6
+    },
+    {
+      "codigo": 102,
+      "nombre": "Exeggcute",
+      "peso": 2.5
+    },
+    {
+      "codigo": 103,
+      "nombre": "Exeggutor",
+      "peso": 120.0
+    },
+    {
+      "codigo": 104,
+      "nombre": "Cubone",
+      "peso": 6.5
+    },
+    {
+      "codigo": 105,
+      "nombre": "Marowak",
+      "peso": 45.0
+    },
+    {
+      "codigo": 106,
+      "nombre": "Hitmonlee",
+      "peso": 49.8
+    },
+    {
+      "codigo": 107,
+      "nombre": "Hitmonchan",
+      "peso": 50.2
+    },
+    {
+      "codigo": 108,
+      "nombre": "Lickitung",
+      "peso": 65.0
+    },
+    {
+      "codigo": 109,
+      "nombre": "Koffing",
+      "peso": 1.0
+    },
+    {
+      "codigo": 110,
+      "nombre": "Weezing",
+      "peso": 9.5
+    },
+    {
+      "codigo": 111,
+      "nombre": "Rhyhorn",
+      "peso": 115.0
+    },
+    {
+      "codigo": 112,
+      "nombre": "Rhydon",
+      "peso": 120.0
+    },
+    {
+      "codigo": 113,
+      "nombre": "Chansey",
+      "peso": 34.6
+    },
+    {
+      "codigo": 114,
+      "nombre": "Tangela",
+      "peso": 35.0
+    },
+    {
+      "codigo": 115,
+      "nombre": "Kangaskhan",
+      "peso": 80.0
+    },
+    {
+      "codigo": 116,
+      "nombre": "Horsea",
+      "peso": 8.0
+    },
+    {
+      "codigo": 117,
+      "nombre": "Seadra",
+      "peso": 25.0
+    },
+    {
+      "codigo": 118,
+      "nombre": "Goldeen",
+      "peso": 15.0
+    },
+    {
+      "codigo": 119,
+      "nombre": "Seaking",
+      "peso": 39.0
+    },
+    {
+      "codigo": 120,
+      "nombre": "Staryu",
+      "peso": 34.5
+    },
+    {
+      "codigo": 121,
+      "nombre": "Starmie",
+      "peso": 80.0
+    },
+    {
+      "codigo": 122,
+      "nombre": "Mr. Mime",
+      "peso": 54.5
+    },
+    {
+      "codigo": 123,
+      "nombre": "Scyther",
+      "peso": 56.0
+    },
+    {
+      "codigo": 124,
+      "nombre": "Jynx",
+      "peso": 40.6
+    },
+    {
+      "codigo": 125,
+      "nombre": "Electabuzz",
+      "peso": 30.0
+    },
+    {
+      "codigo": 126,
+      "nombre": "Magmar",
+      "peso": 44.5
+    },
+    {
+      "codigo": 127,
+      "nombre": "Pinsir",
+      "peso": 55.0
+    },
+    {
+      "codigo": 128,
+      "nombre": "Tauros",
+      "peso": 88.4
+    },
+    {
+      "codigo": 129,
+      "nombre": "Magikarp",
+      "peso": 10.0
+    },
+    {
+      "codigo": 130,
+      "nombre": "Gyarados",
+      "peso": 235.0
+    },
+    {
+      "codigo": 131,
+      "nombre": "Lapras",
+      "peso": 220.0
+    },
+    {
+      "codigo": 132,
+      "nombre": "Ditto",
+      "peso": 4.0
+    },
+    {
+      "codigo": 133,
+      "nombre": "Eevee",
+      "peso": 6.5
+    },
+    {
+      "codigo": 134,
+      "nombre": "Vaporeon",
+      "peso": 29.0
+    },
+    {
+      "codigo": 135,
+      "nombre": "Jolteon",
+      "peso": 24.5
+    },
+    {
+      "codigo": 136,
+      "nombre": "Flareon",
+      "peso": 25.0
+    },
+    {
+      "codigo": 137,
+      "nombre": "Porygon",
+      "peso": 36.5
+    },
+    {
+      "codigo": 138,
+      "nombre": "Omanyte",
+      "peso": 7.5
+    },
+    {
+      "codigo": 139,
+      "nombre": "Omastar",
+      "peso": 35.0
+    },
+    {
+      "codigo": 140,
+      "nombre": "Kabuto",
+      "peso": 11.5
+    },
+    {
+      "codigo": 141,
+      "nombre": "Kabutops",
+      "peso": 40.5
+    },
+    {
+      "codigo": 142,
+      "nombre": "Aerodactyl",
+      "peso": 59.0
+    },
+    {
+      "codigo": 143,
+      "nombre": "Snorlax",
+      "peso": 460.0
+    },
+    {
+      "codigo": 144,
+      "nombre": "Articuno",
+      "peso": 55.4
+    },
+    {
+      "codigo": 145,
+      "nombre": "Zapdos",
+      "peso": 52.6
+    },
+    {
+      "codigo": 146,
+      "nombre": "Moltres",
+      "peso": 60.0
+    },
+    {
+      "codigo": 147,
+      "nombre": "Dratini",
+      "peso": 3.3
+    },
+    {
+      "codigo": 148,
+      "nombre": "Dragonair",
+      "peso": 16.5
+    },
+    {
+      "codigo": 149,
+      "nombre": "Dragonite",
+      "peso": 210.0
+    },
+    {
+      "codigo": 150,
+      "nombre": "Mewtwo",
+      "peso": 122.0
+    },
+    {
+      "codigo": 151,
+      "nombre": "Mew",
+      "peso": 4.0
+    }
+  ]
+}

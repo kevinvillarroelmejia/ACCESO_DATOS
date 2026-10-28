@@ -1,0 +1,24 @@
+{
+  "pokemons": [
+    {
+      "codigo": 25,
+      "nombre": "Pikachu",
+      "peso": 6.0
+    },
+    {
+      "codigo": 152,
+      "nombre": "Chikorita",
+      "peso": 6.4
+    },
+    {
+      "codigo": 155,
+      "nombre": "Cyndaquil",
+      "peso": 7.9
+    },
+    {
+      "codigo": 158,
+      "nombre": "Totodile",
+      "peso": 9.5
+    }
+  ]
+}

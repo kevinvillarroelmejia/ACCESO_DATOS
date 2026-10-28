@@ -1,0 +1,4 @@
+25, Pikachu, 6.0
+152, Chikorita, 6.4
+155, Cyndaquil, 7.9
+158, Totodile, 9.5

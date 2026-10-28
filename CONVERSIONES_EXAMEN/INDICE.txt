@@ -1,0 +1,55 @@
+=====================================================================
+ CONVERSIONES_EXAMEN - 18 combinaciones (Acceso a Datos)
+ Cada paquete es independiente: Main_X_a_Y.java + Pokemon.java
+ (+ Pokedex.java si hay JSON) + el fichero de entrada de ejemplo.
+=====================================================================
+
+ Nº  PAQUETE              ENTRADA                  SALIDA
+  1  c01_TXT_a_XML        pokemon.txt              pokemon.xml
+  2  c02_TXT_a_JSON       pokemon.txt              pokemon.json
+  3  c03_TXT_a_BBDD       pokemon.txt              pokemondb.pokemon
+  4  c04_DAT_a_XML        pokemon.dat              pokemon.xml
+  5  c05_DAT_a_JSON       pokemon.dat              pokemon.json
+  6  c06_DAT_a_BBDD       pokemon.dat              pokemondb.pokemon
+  7  c07_XML_a_JSON       pokemon.xml              pokemon.json
+  8  c08_XML_a_TXT        pokemon.xml              pokemon.txt
+  9  c09_XML_a_DAT        pokemon.xml              pokemon.dat
+ 10  c10_XML_a_BBDD       pokemon.xml              pokemondb.pokemon
+ 11  c11_JSON_a_XML       pokemon.json             pokemon.xml
+ 12  c12_JSON_a_TXT       pokemon.json             pokemon.txt
+ 13  c13_JSON_a_DAT       pokemon.json             pokemon.dat
+ 14  c14_JSON_a_BBDD      pokemon.json             pokemondb.pokemon
+ 15  c15_BBDD_a_XML       pokemondb.pokemon        pokemon.xml
+ 16  c16_BBDD_a_JSON      pokemondb.pokemon        pokemon.json
+ 17  c17_BBDD_a_TXT       pokemondb.pokemon        pokemon.txt
+ 18  c18_BBDD_a_DAT       pokemondb.pokemon        pokemon.dat
+
+---------------------------------------------------------------------
+ COMO USARLO EN EL EXAMEN
+---------------------------------------------------------------------
+ 1. Lee el enunciado: ¿de QUE formato a QUE formato? -> busca el paquete.
+ 2. Copia el paquete entero (o sus .java) a tu proyecto del examen.
+ 3. Cambia SOLO lo marcado con "CAMBIAR":
+      - Pokemon.java: atributos del enunciado (+ getters, constructor, toString)
+      - nombres de los ficheros (FICHERO_...)
+      - TXT: SEPARADOR y la posicion de cada campo
+      - XML: RAIZ_XML y las ETIQUETA_...
+      - JSON: @SerializedName de Pokedex y los atributos de Pokemon
+      - BBDD: URL / USUARIO / PASSWORD y el SQL
+ 4. Ejecuta: mostrarLista() te dice si la LECTURA ha ido bien.
+
+ LAS 10 PIEZAS (son las mismas en todos los paquetes)
+   leerTXT   / escribirTXT   -> BufferedReader / BufferedWriter
+   leerDAT   / escribirDAT   -> ObjectInputStream / ObjectOutputStream (lista entera)
+   leerXML   / escribirXML   -> getElementsByTagName / createElement + grabarXML
+   leerJSON  / escribirJSON  -> gson.fromJson(Pokedex) / gson.toJson(Pokedex)
+   leerBBDD  / escribirBBDD  -> SELECT + executeQuery / INSERT + executeUpdate
+
+ LIBRERIAS (ya en lib/ y en el Build Path del proyecto)
+   gson-2.14.0.jar  y  mysql-connector-j-26.7.0.jar
+   Si copias a otro proyecto: Build Path -> Add JARs. Sin module-info.java.
+
+ BBDD: pokemondb cargada en Docker. Tabla pokemon(numero_pokedex, nombre, peso, altura).
+   Los INSERT de ejemplo (152, 155, 158) no existen en pokemondb; Pikachu (25) si -> se salta.
+   Para repetir: DELETE FROM pokemon WHERE numero_pokedex > 151;
+=====================================================================
