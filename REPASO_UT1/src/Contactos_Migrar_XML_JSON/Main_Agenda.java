@@ -1,6 +1,9 @@
 package Contactos_Migrar_XML_JSON;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.Writer;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -8,7 +11,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /*
  1. Lee un archivo con la estructura que hemos usado en clase para la Agenda XML y
@@ -18,30 +25,54 @@ puedas de lo que hemos hecho en clase*/
 
 public class Main_Agenda {
 
-	
-	
-	
-	public static void main(String[] args) {
-		
-		
-		
+	public static final String FICHERO_XML = "src" + File.separator + "Contactos_Migrar_XML_JSON" + File.separator
+			+ "agenda.xml";
+	public static final String FICHERO_JSON = "src" + File.separator + "Contactos_Migrar_XML_JSON" + File.separator
+			+ "agenda.json";
+
+	public static void main(String[] args) throws Exception {
+
+		List<Contacto> listaAgenda = leerAgendaXML(FICHERO_XML);
+		cargarJSON(listaAgenda);
+
 	}
-	
-	
-	
-	
-	public static void leerAgendaXML(String ficheroXML,List<Contacto> listaContacto) throws Exception {
-		Document document=leerOCrearXML(ficheroXML, "Agenda");
-		
-		NodeList listaContactos=document.getElementsByTagName("contacto");
-		//TODO RECOREMOS EL NodeList para que es cada contacto con sus etiquetas
-		//en este caso solo tenemos nombre telefono y dni
-		for(int i = 0; i < listaContactos.getLength(); i++) {
-			
+
+	public static void cargarJSON(List<Contacto> listaAgenda) {
+		Agenda agenda = new Agenda(listaAgenda); 
+		try (Writer escritor = new FileWriter(FICHERO_JSON)) {
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			//toJson escribe el JSON con la misma forma que tiene agenda
+			gson.toJson(agenda, escritor);
+
+		} catch (Exception e) {
+			System.out.println("error " + e.getMessage());
 		}
-		
 	}
-	//Document: Es un arbol de etiquetas
+
+	public static List<Contacto> leerAgendaXML(String ficheroXML) throws Exception {
+		List<Contacto> listContactos = new ArrayList<Contacto>();
+
+		Document document = leerOCrearXML(ficheroXML, "Agenda");
+
+		NodeList nodeListContacto = document.getElementsByTagName("contacto");
+		// TODO RECOREMOS EL NodeList para que es cada contacto con sus etiquetas
+		// en este caso solo tenemos nombre telefono y dni
+		for (int i = 0; i < nodeListContacto.getLength(); i++) {
+			Node nodo = nodeListContacto.item(i);
+			Element contactoElement = (Element) nodo;
+
+			String nombre = contactoElement.getElementsByTagName("nombre").item(0).getTextContent();
+			int telefono = Integer.parseInt(contactoElement.getElementsByTagName("telefono").item(0).getTextContent());
+
+			Contacto contacto = new Contacto(nombre, telefono);
+			listContactos.add(contacto);
+
+		}
+
+		return listContactos;
+	}
+
+	// Document: Es un arbol de etiquetas
 	private static Document leerOCrearXML(String fichero, String nombreRaiz) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
@@ -57,5 +88,4 @@ public class Main_Agenda {
 		return doc;
 	}
 
-	
 }

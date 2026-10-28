@@ -128,6 +128,7 @@ public class Main_Pokemon {
 		transformer.transform(source, result);
 	}
 
+	//METODO QUE LEE UN FICHERO Y VUELVE UNA LISTA
 	public static List<Pokemon> leerPokemonTXT(String fichero) {
 		List<Pokemon> listaPokemon = new ArrayList<Pokemon>();
 		try (BufferedReader lector = new BufferedReader(new FileReader(fichero))) {
