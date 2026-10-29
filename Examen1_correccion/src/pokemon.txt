@@ -1,0 +1,4 @@
+=== POKEDEX DEL PROFESOR OAK ===electrico
+fuego
+agua
+planta
