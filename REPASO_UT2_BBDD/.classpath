@@ -6,10 +6,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/IES FRANCISCO DE GOYA/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/ACCESO_DATOS/LIBRERIAS/librerias/mysql-connector-j-26.7.0.jar"/>
-	<classpathentry kind="lib" path="D:/IES FRANCISCO DE GOYA/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/ACCESO_DATOS/LIBRERIAS/librerias/gson-2.14.0.jar"/>
-	<classpathentry kind="lib" path="D:/IES FRANCISCO DE GOYA/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/ACCESO_DATOS/LIBRERIAS/Apache/commons-dbcp2-2.14.0.jar"/>
-	<classpathentry kind="lib" path="D:/IES FRANCISCO DE GOYA/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/ACCESO_DATOS/LIBRERIAS/Apache/commons-logging-1.4.0.jar"/>
-	<classpathentry kind="lib" path="D:/IES FRANCISCO DE GOYA/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/ACCESO_DATOS/LIBRERIAS/Apache/commons-pool2-2.13.1.jar"/>
+	<classpathentry kind="lib" path="/home/alumno/Escritorio/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/LIBRERIAS/Apache/commons-pool2-2.13.1.jar"/>
+	<classpathentry kind="lib" path="/home/alumno/Escritorio/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/LIBRERIAS/Apache/commons-logging-1.4.0.jar"/>
+	<classpathentry kind="lib" path="/home/alumno/Escritorio/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/LIBRERIAS/Apache/commons-dbcp2-2.14.0.jar"/>
+	<classpathentry kind="lib" path="/home/alumno/Escritorio/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/LIBRERIAS/librerias/mysql-connector-j-26.7.0.jar"/>
+	<classpathentry kind="lib" path="/home/alumno/Escritorio/DAM_2/ACCESO_DATOS/ACCESO_DATOS_REPO/LIBRERIAS/librerias/gson-2.14.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

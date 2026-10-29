@@ -30,7 +30,7 @@ public class Main_PokemonPorTipo {
 				"SELECT pokemon.numero_pokedex,pokemon.nombre,pokemon.peso,pokemon.altura FROM pokemon JOIN pokemon_tipo ON pokemon_tipo.numero_pokedex = pokemon.numero_pokedex JOIN tipo ON tipo.id_tipo = pokemon_tipo.id_tipo WHERE tipo.nombre = ?",
 				ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		query.setString(1, tipo);
-		ResultSet resultadoTipo = query.executeQuery();// para saber las lineas
+		ResultSet resultadoTipo = query.executeQuery();// para saber las lineas - executeUpdate();
 		resultadoTipo.last();
 
 		if (!existeTipo(conexion, tipo)) { //COMPRUEBA SI EXISTE EL TIPO
