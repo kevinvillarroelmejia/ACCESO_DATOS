@@ -21,7 +21,12 @@ public class Main_Migra_SQL_JSON {
 	
 	public static String FICHERO_JSON="src"+File.separator+"SQL_JSON"+File.separator+"basesPokemon.json";
 	public static void main(String[] args) {
+		
+//		conexion.setAutoCommit(false)
 
+//		conexion.commit
+		
+		
 		// si estoy en casa localhost:3306
 		// si estoy en clase 172.17.0.1:3306
 		try (Connection conexion = Pool_ConexionesSimultaneas.getConnection()) {
