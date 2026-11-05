@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
 	version="3.2">
-	<persistence-unit name="clasePU">
+	<persistence-unit name="clasePU"> <!-- etiqueta para dar contexto -->
 		<class>com.dam2.kevin.Producto</class>
 		<properties>
 			<property name="jakarta.persistence.jdbc.url"
