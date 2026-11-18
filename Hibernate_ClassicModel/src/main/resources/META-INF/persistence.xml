@@ -4,11 +4,10 @@
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
 	version="3.2">
 	<persistence-unit name="goyaPU">
-		<class>com.dam2.kevin.Alumno</class>
+		<class>com.dam2.kevin.Empleados</class> <!-- la clase Empleados-->
 		<properties>
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/Goya?
-createDatabaseIfNotExist=true" /><!-- si no existe la crea-->
+				value="jdbc:mysql://localhost:3306/classicmodels?createDatabaseIfNotExist=true" /><!-- si no existe la crea-->
 			
 			<!-- crecenciales del docker-->
 			<property name="jakarta.persistence.jdbc.user" value="alumno" />

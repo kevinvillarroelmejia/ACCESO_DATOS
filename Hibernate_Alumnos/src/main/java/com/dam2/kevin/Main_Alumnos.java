@@ -22,9 +22,9 @@ public class Main_Alumnos {
 			
 			em.persist(new Alumno("22211133F","Adrian","Limachi",21,100));
 			em.persist(new Alumno("55667744K","Sara","Limachi",23,100));
-			em.persist(new Alumno("22211133F","Sergio","Limachi",33,100));
-			em.persist(new Alumno("22211133F","Jordan","Limachi",11,100));
-			em.persist(new Alumno("22211133F","Ale","Limachi",45,100));
+			em.persist(new Alumno("22211123F","Sergio","Limachi",33,100));
+			em.persist(new Alumno("22211103F","Jordan","Limachi",11,100));
+			em.persist(new Alumno("22211143F","Ale","Limachi",45,100));
 
 			em.getTransaction().commit();
 

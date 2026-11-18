@@ -14,7 +14,7 @@ public class Main2 {
 	public static void main(String[] args) {
 		LOG_HIBERNATE.setLevel(Level.SEVERE);// va mostrar solo los errores
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("clasePU");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("goyaPU");
 		EntityManager em = emf.createEntityManager();
 
 		try {
