@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+     https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- CAMBIA: groupId y artifactId por los del proyecto nuevo -->
+	<groupId>com.dam2.goya</groupId>
+	<artifactId>plantilla-b</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- NO CAMBIA: quita los mensajes de info de SLF4J -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>2.0.16</version>
+		</dependency>
+		<!-- NO CAMBIA: Hibernate (en este PDF se usa la 6.5.2 igual que el plugin) -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.5.2.Final</version>
+		</dependency>
+		<!-- NO CAMBIA: estan los dos drivers, el que se usa lo decide el prefijo de la URL -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>9.1.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.hibernate.tool</groupId>
+				<artifactId>hibernate-tools-maven</artifactId>
+				<version>6.5.2.Final</version>
+
+				<!-- IMPORTANTE: este bloque executions genera las clases en cada compilacion
+				     y puede SOBREESCRIBIR tus cambios en ellas
+				     Cuando ya esten generadas las clases comenta o borra el bloque executions
+				     y para volver a generarlas usa Run As > Maven build con Goals: hibernate-tools:hbm2java -->
+				<executions>
+					<execution>
+						<id>generate-entities</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>hbm2java</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<!-- NO CAMBIA: carpeta donde se dejan las clases generadas -->
+					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+					<!-- CAMBIA (opcional): paquete de las clases generadas -->
+					<packageName>model</packageName>
+					<ejb3>true</ejb3>
+					<jdk5>true</jdk5>
+<properties>
+	<hibernate.connection.driver_class>com.mysql.cj.jdbc.Driver</hibernate.connection.driver_class>
+	<hibernate.connection.url>jdbc:mysql://localhost:3306/classicmodels</hibernate.connection.url>
+	<hibernate.connection.username>alumno</hibernate.connection.username>
+	<hibernate.connection.password>abc123</hibernate.connection.password>
+	<hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+	<hibernate.default_catalog>classicmodels</hibernate.default_catalog>
+	<hibernate.default_schema>classicmodels</hibernate.default_schema>
+</properties>
+				</configuration>
+
+				<!-- NO CAMBIA: el plugin necesita el driver tambien aqui dentro -->
+				<dependencies>
+					<dependency>
+						<groupId>org.mariadb.jdbc</groupId>
+						<artifactId>mariadb-java-client</artifactId>
+						<version>3.3.3</version>
+					</dependency>
+					<dependency>
+						<groupId>com.mysql</groupId>
+						<artifactId>mysql-connector-j</artifactId>
+						<version>9.1.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

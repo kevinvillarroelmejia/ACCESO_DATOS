@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANTE: la carpeta se llama META-INF (guion normal) y es una Folder, no una Source Folder -->
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+	https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+	version="3.1">
+
+	<!-- CAMBIA (opcional): el name; tiene que ser igual que en el Main -->
+	<persistence-unit name="clasePU">
+
+		<!-- CAMBIA: una linea class por cada clase generada que vayas a usar (paquete model + nombre de la clase)
+		     Las clases generadas estan en src/main/java/model. Ejemplo del PDF: model.Countries
+		     Si usas una relacion (OneToMany) tambien hay que listar la otra clase -->
+		<class>model.Countries</class>
+
+		<properties>
+			<!-- CAMBIA: mariadb o mysql y el nombre de la base de datos, todo en UNA sola linea -->
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/NOMBRE_BD" />
+			<!-- CAMBIA: usuario y contrasena -->
+			<property name="jakarta.persistence.jdbc.user" value="profe" />
+			<property name="jakarta.persistence.jdbc.password" value="abc123" />
+
+			<!-- NO CAMBIA: update completa lo que falte y nunca borra datos, none para que no toque nada -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- CAMBIA (opcional): true para ver el SQL -->
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

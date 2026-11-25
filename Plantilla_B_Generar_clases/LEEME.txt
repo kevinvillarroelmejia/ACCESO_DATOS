@@ -1,0 +1,27 @@
+PLANTILLA B: generar las clases desde una base de datos que ya existe (pasos del PDF 3)
+
+COMO USARLA EN EL EXAMEN (los 10 minutos con internet)
+1. Copiar la carpeta, ponerle el nombre del ejercicio e importarla: File > Import > Existing Maven Projects
+2. En el pom.xml cambiar artifactId y los 5 datos marcados CAMBIA dentro del plugin (driver, url, usuario y contrasena, dialecto, nombre de la base de datos)
+3. En hibernate.properties poner los mismos datos
+4. Project > Update Maven Project (con internet, descarga las librerias y el plugin)
+5. Se generan las clases en el paquete model (si no aparecen: clic derecho en la carpeta src/main/java y F5)
+   Si no se generan solas: clic derecho en el proyecto > Run As > Maven build, Goals: hibernate-tools:hbm2java
+6. Comentar o borrar el bloque executions del pom.xml para que no se vuelvan a generar encima de tus cambios
+7. En persistence.xml cambiar la URL, usuario, contrasena y poner una linea class por cada clase generada
+8. Ejecutar el Main. Si lista sin error la conexion esta bien. Ya se puede quitar el internet
+
+DATOS QUE SE REPITEN EN VARIOS SITIOS (cambiarlos en todos)
+- Nombre de la base de datos: pom.xml (url, default_catalog, default_schema), hibernate.properties (3 veces) y persistence.xml (url)
+- Usuario y contrasena: pom.xml, hibernate.properties y persistence.xml
+- Driver y dialecto: pom.xml y hibernate.properties (MariaDB o MySQL)
+
+NOTAS DEL PROFESOR
+- Las clases generadas salen con nombres en plural (Countries) y con anotaciones antiguas, si dan problemas hay que arreglarlas a mano
+- Con tablas muy complejas la generacion puede dar errores graves
+
+SI FALLA, MIRAR POR ORDEN
+- No Persistence provider: carpeta META-INF mal escrita o name del persistence-unit distinto
+- La URL tiene que estar en una sola linea
+- Could not resolve root entity: en el JPQL va el nombre de la CLASE generada, no el de la tabla
+- Falta una linea class en el persistence.xml
